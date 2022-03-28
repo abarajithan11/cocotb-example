@@ -3,7 +3,7 @@
 
 module dff (
     output logic q,
-    input logic clk
+    input logic clk, d
 );
 
 `ifdef COCOTB_SIM
@@ -15,7 +15,7 @@ end
 `endif
 
 always @(posedge clk) begin
-    q <= d;
+    q <= q;
 end
 
 endmodule
