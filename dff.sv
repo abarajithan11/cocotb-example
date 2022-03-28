@@ -3,7 +3,7 @@
 
 module dff (
     output logic q,
-    input logic clk, d
+    input logic clk
 );
 
 `ifdef COCOTB_SIM
