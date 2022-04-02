@@ -21,4 +21,4 @@ jobs:
 
     - name: Verify with cocotb & icarus
       run: |
-        make
+        pytest
