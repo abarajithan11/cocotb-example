@@ -1,8 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1648463522" />
-    <testcase name="test_dff_simple" classname="test_dff" file="D:\lemurian\cocotb\cocotb-example\test_dff.py" lineno="8" time="0.0019958019256591797" sim_time_ns="5000.001" ratio_time="2505259.132039661">
-      <failure />
-    </testcase>
+    <property name="random_seed" value="1648908715" />
+    <testcase name="test_dff_simple" classname="test_dff" file="D:\lemurian\cocotb\cocotb-example\test_dff.py" lineno="8" time="0.006002664566040039" sim_time_ns="95000.001" ratio_time="15826305.127469676" />
   </testsuite>
 </testsuites>

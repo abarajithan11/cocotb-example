@@ -15,7 +15,7 @@ end
 `endif
 
 always @(posedge clk) begin
-    q <= q;
+    q <= d;
 end
 
 endmodule
