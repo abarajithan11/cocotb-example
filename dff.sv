@@ -16,6 +16,6 @@ end
 `endif
 
 always @(posedge clk)
-    q <= d;
+    q <= 8'b1;
 
 endmodule

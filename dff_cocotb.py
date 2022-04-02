@@ -12,6 +12,6 @@ def test_dff_simple(dut):
 
     for i in range(10):
         val = random.randint(0, 255)
-        dut.d <= val  # Assign the random value val to the input port d
+        dut.d.value = val  # Assign the random value val to the input port d
         yield FallingEdge(dut.clk)
-        assert dut.q.value == val, "output q was incorrect on the {}th cycle".format(i)
+        assert dut.q.value == val, f"output q was incorrect on the {i}th cycle. Got {dut.q.value}, expected {val}"
