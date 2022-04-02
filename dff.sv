@@ -2,8 +2,9 @@
 `timescale 1us/1ns
 
 module dff (
-    output logic q,
-    input logic clk, d
+    input  logic clk, 
+    input  logic [7:0] d,
+    output logic [7:0] q
 );
 
 `ifdef COCOTB_SIM
@@ -14,8 +15,7 @@ initial begin
 end
 `endif
 
-always @(posedge clk) begin
+always @(posedge clk)
     q <= d;
-end
 
 endmodule
