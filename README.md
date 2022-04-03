@@ -10,6 +10,11 @@
 
 While Verilator is a fast & widely used open-source simulator, I could not find an easy way to install it in windows. Therefore, I will use icarus-verilog.
 
+Cocotb-test is a pytest-based library that wraps around cocotb and simplifies the make system. Advantages are:
+
+* Specifying makefile is also done in python
+* Can run the same test with different parameters automatically
+
 ## Setup anaconda, install cocotb
 
 Install anaconda from [here](https://docs.anaconda.com/anaconda/install/index.html). Then create an environment and install needed packages.
@@ -17,7 +22,7 @@ Install anaconda from [here](https://docs.anaconda.com/anaconda/install/index.ht
 ```
 conda create --name verify
 conda install numpy
-pip install cocotb
+pip install cocotb cocotb-test
 ```
 
 ## Install Icarus & GTKwave
@@ -29,10 +34,10 @@ pip install cocotb
 
 ```
 conda activate verify
-make
+pytest tb/
 ```
 
 View Waveform:
 ```
-path/to/gtkwave.exe dff.vcd
+path/to/gtkwave.exe wave/dff.vcd
 ```

@@ -9,13 +9,13 @@ module dff (
 
 `ifdef COCOTB_SIM
 initial begin
-  $dumpfile ("dff.vcd");
+  $dumpfile ("../wave/dff.vcd");
   $dumpvars (0, dff);
   #1;
 end
 `endif
 
 always @(posedge clk)
-    q <= 8'b1;
+    q <= d;
 
 endmodule
