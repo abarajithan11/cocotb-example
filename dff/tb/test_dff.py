@@ -9,12 +9,12 @@ import pytest
         ])
 def test_dff(parameters):
     run(
-        verilog_sources=glob('hdl/*'),
+        verilog_sources=glob('dff/hdl/*'),
         toplevel="dff",            # top level HDL
         module="dff_cocotb",       # name of cocotb test module
         simulator="icarus",
 
         parameters=parameters,
         extra_env=parameters,
-        sim_build="sim_build/" + ",".join((f"{key}={value}" for key, value in parameters.items())),
+        sim_build="dff/sim_build/" + ",".join((f"{key}={value}" for key, value in parameters.items())),
     )
