@@ -39,5 +39,5 @@ pytest tb/
 
 View Waveform:
 ```
-path/to/gtkwave.exe wave/dff.vcd
+path/to/gtkwave.exe sim_build/WIDTH_IN=16/dff.vcd
 ```
