@@ -6,7 +6,7 @@ module dff #(
   parameter WIDTH_OUT=8
 )(
     input  logic clk, 
-    input  logic [WIDTH_IN -1:0] d,
+    input  logic [WIDTH_IN -1:0] d
     output logic [WIDTH_OUT-1:0] q
 );
 
