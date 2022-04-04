@@ -5,14 +5,15 @@ from cocotb.triggers import FallingEdge
 
 @cocotb.test()
 def test_dff_simple(dut):
-    """ Test that d propagates to q """
 
-    clock = Clock(dut.clk, 10, units="us")  # Create a 10us period clock on port clk
-    cocotb.start_soon(clock.start())  # Start the clock
+    ''' Clock Generation '''
+    clock = Clock(dut.clk, 10, units="us")
+    cocotb.start_soon(clock.start())
 
+    ''' Assign random values to input, wait for a clock and verify output '''
     for i in range(10):
         val = random.randint(0, 255)
-        dut.d.value = val  # Assign the random value val to the input port d
+        dut.d.value = val
         yield FallingEdge(dut.clk)
-        assert dut.q.value == val, f"output q was incorrect on the {i}th cycle. Got {dut.q.value}, expected {val}"
+        assert dut.q.value == val, f"Failed on the {i}th cycle. Got {dut.q.value}, expected {val}"
         

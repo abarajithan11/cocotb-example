@@ -2,7 +2,7 @@ import random
 from types import coroutine
 import cocotb
 from cocotb.clock import Clock
-from cocotb.triggers import FallingEdge, RisingEdge, Join
+from cocotb.triggers import FallingEdge, RisingEdge, Join, ClockCycles
 import numpy as np
 
 NUM_DATA = 1000
@@ -82,8 +82,7 @@ async def axis_fifo_test(dut):
     cocotb.start_soon(clock.start())
 
     dut.aresetn.value = 0
-    await RisingEdge(dut.aclk)
-    await RisingEdge(dut.aclk)
+    await ClockCycles(dut.aclk, 2)
     dut.aresetn.value = 1
 
     data_in = np.random.randint(0, 255, size=(NUM_DATA), dtype=np.uint8)
