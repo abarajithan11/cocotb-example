@@ -4,7 +4,7 @@ import pytest
 
 @pytest.mark.parametrize(
     "parameters", [
-        {"WIDTH_IN": "2", "WIDTH_OUT": "16"}, 
+        {"WIDTH_IN": "8", "WIDTH_OUT": "16"}, 
         {"WIDTH_IN": "16"}
         ])
 def test_dff(parameters):
