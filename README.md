@@ -32,12 +32,28 @@ pip install cocotb cocotb-test
 
 ## Run example
 
+Two example designs and corresponding testbenches have been developed:
+
+1. _dff:_ A simple D flip flop
+2. *axis_fifo:* AXI Stream FIFO tested with randomized ready, valid handshakes for different static parameters.
+
+### Run all tests:
+
 ```
 conda activate verify
-pytest tb/
+pytest
 ```
 
-View Waveform:
+### View Waveform
+
 ```
-path/to/gtkwave.exe sim_build/WIDTH_IN=16/dff.vcd
+path/to/gtkwave.exe axis_fifo/sim_build/WIDTH=8,DEPTH=2/dff.vcd
 ```
+
+![GTK Wave](axis_fifo/other/gtk.png)
+
+### Github Actions (CI/CD Pipeline)
+
+Github actions are defined in ```.github/workflows/verify.yml```. Currently they are defined to setup iverilog, cocotb on an ubuntu machine and run all tests, whenever a commit is pushed into any branch in origin. They also can be setup to trigger when a branch is merged into the master branch.
+
+[Check past actions here](https://github.com/Lemurian-Labs/cocotb-example/actions)
