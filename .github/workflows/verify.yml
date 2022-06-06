@@ -28,4 +28,4 @@ jobs:
 
     - name: Verify with cocotb & icarus
       run: |
-        pytest dff/tb axis_fifo/tb
+        pytest register/tb axis_fifo/tb

@@ -76,12 +76,12 @@ export DISPLAY=
 
 Two example designs and corresponding testbenches have been developed:
 
-1. _dff:_ A simple D flip flop
+1. _register:_ A simple D register
 2. *axis_fifo:* AXI Stream FIFO tested with randomized ready, valid handshakes for different static parameters.
 
 ### Run all tests:
 
-PyTest is a popular framework which finds, configures and runs python unit tests and generates reports. `-o log_cli=True` is needed to print the logging calls & print() statements to console (for debugging). You can specify `dff/tb/` to force pytest to only look inside one folder and ignore any submodule tests.
+PyTest is a popular framework which finds, configures and runs python unit tests and generates reports. `-o log_cli=True` is needed to print the logging calls & print() statements to console (for debugging). You can specify `register/tb/` to force pytest to only look inside one folder (and its subfolders) and ignore other tests.
 
 ```
 conda activate verify
@@ -91,7 +91,7 @@ pytest -o log_cli=True
 ### View Waveform
 
 ```
-path/to/gtkwave.exe axis_fifo/sim_build/WIDTH=8,DEPTH=2/dff.vcd
+path/to/gtkwave.exe axis_fifo/sim_build/WIDTH=8,DEPTH=2/register.vcd
 ```
 
 ![GTK Wave](axis_fifo/other/gtk.png)
