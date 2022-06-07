@@ -2,6 +2,9 @@ import cocotb
 from cocotb.triggers import RisingEdge
 import random
 
+'''
+Signal Driver
+'''
 async def axis_source(data, NUM_DATA, VALID_PROB=0.5):
     
     dut = cocotb.top
@@ -33,7 +36,9 @@ async def axis_source(data, NUM_DATA, VALID_PROB=0.5):
 
     reset()
 
-
+'''
+Signal Monitor
+'''
 async def axis_sink(data, NUM_DATA, READY_PROB=0.5):
 
     dut = cocotb.top
@@ -61,6 +66,5 @@ async def axis_sink(data, NUM_DATA, READY_PROB=0.5):
             else:
                 assert dut.m_last.value == 0, f'AXIS m_last raised at aclk={i_clk}'
             i_data += 1
-
 
     dut.m_ready.value = 0

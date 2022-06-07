@@ -1,4 +1,4 @@
-# Cocotb + Icarus Setup & Test
+# Cocotb + Icarus: Setup, Test, Learn
 
 [Cocotb](https://github.com/cocotb/cocotb) is an open-source python-based alternative to SystemVerilog testbenches. Since python is a productive high-level language with a rich ecosystem of well-maintained libraries such as numpy, tensorflow and pytorch, using python for verification allows the direct usage of those libraries. Cocotb does not simulate the testbench itself. Instead, it interfaces with any of the following simulators:
 
@@ -87,7 +87,6 @@ PyTest is a popular framework which finds, configures and runs python unit tests
 conda activate verify
 pytest -o log_cli=True
 ```
-
 ### View Waveform
 
 ```
@@ -96,8 +95,17 @@ path/to/gtkwave.exe axis_fifo/sim_build/WIDTH=8,DEPTH=2/register.vcd
 
 ![GTK Wave](axis_fifo/other/gtk.png)
 
-### Github Actions (CI/CD Pipeline)
+## Learn CoCoTB:
 
-Github actions are defined in ```.github/workflows/verify.yml```. Currently they are defined to setup iverilog, cocotb on an ubuntu machine and run all tests, whenever a commit is pushed into any branch in origin. They also can be setup to trigger when a branch is merged into the master branch.
+You can start reading the file `register/tb/test_register.py`. I have commented important details.
+
+
+## Github Actions (CI/CD Pipeline)
+
+Github actions are used to setup automated CI/CD (Continuous Integration, Continuous Development) workflow. 
+
+That is, when you edit files, commit and push to github, Github Actions will automatically setup a cloud machine and run all our tests again, to verify that we have not introduced any errors, before merging it into the master.
+
+Github actions are defined in `.github/workflows/verify.yml`. Currently they are defined to setup iverilog, cocotb on an ubuntu machine and run all tests, whenever a commit is pushed into any branch in origin. They also can be setup to trigger when a branch is merged into the master branch.
 
 [Check past actions here](https://github.com/Lemurian-Labs/cocotb-example/actions)
